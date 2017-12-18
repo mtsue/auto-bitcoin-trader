@@ -12,9 +12,10 @@ const getOpens = () => {
             headers: signature
         }).then(res => {
             try {
-                const data = res.data;
+                const data = res.data
+                const orders = data.orders;
 
-                resolve(data);
+                resolve(orders);
             } catch (err) {
                 const message =
                     'Error at getOpens()\n' +
