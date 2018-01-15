@@ -4,7 +4,7 @@ const cancelTiming = (orderTime, currentRate, orderRate) => {
     currentRate = parseInt(currentRate);
     orderRate = parseInt(orderRate);
 
-    if (20 * 1000 < now - orderTime) {
+    if (30 * 1000 < now - orderTime) {
         return true;
     }
     if (800 < currentRate - orderRate) {
