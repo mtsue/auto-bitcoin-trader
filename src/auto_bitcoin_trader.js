@@ -87,11 +87,11 @@ const autoBitcoinTrader = async () => {
                 const orderTime = opens[0].created_at;
                 const orderRate = opens[0].rate;
                 if (orderType === 'buy' && cancelTiming(orderTime, rate.current, orderRate)) {
-                    await cancel(opens[0].id);
+                    await sendCancel(opens[0].id);
                     console.log('Cancel');
                 } else {
                     if (orderType === 'buy') {
-                        console.log('Incompleted buy');
+                        console.log('Incompleted buy|' + `${(new Date().getTime() - new Date(orderTime).getTime()).toFixed(3)}`);
                     } else if (orderType === 'sell') {
                         console.log('Incompleted sell');
                     }
