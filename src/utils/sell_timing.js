@@ -1,4 +1,4 @@
-const sendTiming = (orderRate, currentRate, orderAmount) => {
+const sellTiming = (orderRate, currentRate, orderAmount) => {
     orderRate = parseInt(orderRate);
     currentRate = parseInt(currentRate);
     orderAmount = parseFloat(orderRate);
@@ -11,4 +11,4 @@ const sendTiming = (orderRate, currentRate, orderAmount) => {
     return false;
 };
 
-module.exports = sendTiming;
+module.exports = sellTiming;
