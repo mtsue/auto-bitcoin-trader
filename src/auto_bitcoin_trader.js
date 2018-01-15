@@ -65,17 +65,17 @@ const autoBitcoinTrader = async () => {
             profit.total = balance.jpy - profit.start;
 
             if (!isOpens) {
-                if (canOrder('buy', balance, rate.current) || buyTiming(rate.prev, rate.current)) {
+                if (canOrder('buy', balance, rate.current) && buyTiming(rate.prev, rate.current)) {
                     buySkip--;
                     if (buySkip <= 1) {
                         buySkip = 5;
-                        let amountJPY = Math.floor((balance.jpy / rate.current) * 1000000) / 1000000;
-                        await sendOrders('buy', rate.current, amountJPY);
-                        console.log('Buy', rate.current, amountJPY);
+                        let amountBTC = Math.floor((balance.jpy / rate.current) * 1000000) / 1000000;
+                        await sendOrders('buy', rate.current, amountBTC);
+                        console.log('Buy', rate.current, amountBTC);
                     } else {
                         console.log('Rate up');
                     }
-                } else if (canOrder('sell', balance, rate.current) || sellTiming(rate.my, rate.current, balance.btc)) {
+                } else if (canOrder('sell', balance, rate.current) && sellTiming(rate.my, rate.current, balance.btc)) {
                     await sendOrders('sell', rate.current, balance.btc);
                     console.log('Sell', rate.current, balance.btc);
                 } else if (rate.current < rate.prev) {
