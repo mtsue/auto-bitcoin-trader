@@ -4,7 +4,8 @@
   "description": "Automatic bitcoin trader.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/auto_bitcoin_trader.js"
   },
   "repository": {
     "type": "git",
