@@ -67,7 +67,7 @@ const autoBitcoinTrader = async () => {
             if (!isOpens) {
                 if (canOrder('buy', balance, rate.current) && buyTiming(rate.prev, rate.current)) {
                     buySkip--;
-                    if (buySkip <= 1) {
+                    if (buySkip <= 0) {
                         buySkip = 5;
                         let amountBTC = Math.floor((balance.jpy / rate.current) * 1000000) / 1000000;
                         await sendOrders('buy', rate.current, amountBTC);
